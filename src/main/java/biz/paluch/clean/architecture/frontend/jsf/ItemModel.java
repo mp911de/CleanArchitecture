@@ -1,12 +1,14 @@
-package biz.paluch.clean.architecture.applicationmodel;
+package biz.paluch.clean.architecture.frontend.jsf;
 
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.enterprise.inject.Model;
+import java.io.Serializable;
 
 /**
  * @author <a href="mailto:mpaluch@paluch.biz">Mark Paluch</a>
- * @since 01.08.13 07:51
+ * @since 02.08.13 13:10
  */
-public class Item
+@Model
+public class ItemModel implements Serializable
 {
     private String item;
 

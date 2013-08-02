@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package biz.paluch.clean.architecture.rest;
+package biz.paluch.clean.architecture.frontend.rest;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

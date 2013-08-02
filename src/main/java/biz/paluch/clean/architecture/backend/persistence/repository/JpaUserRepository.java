@@ -1,6 +1,7 @@
-package biz.paluch.clean.architecture.backend.persistence;
+package biz.paluch.clean.architecture.backend.persistence.repository;
 
 import biz.paluch.clean.architecture.applicationmodel.User;
+import biz.paluch.clean.architecture.backend.persistence.entity.UserEntity;
 import biz.paluch.clean.architecture.usecases.boundaries.UserRepository;
 
 import javax.inject.Inject;
@@ -19,7 +20,7 @@ public class JpaUserRepository implements UserRepository
     @Override
     public User find(String userName)
     {
-        List<UserEntity> list = entityManager.createQuery(UserEntity.QUERY_FIND_BY_USERNAME, UserEntity.class)
+        List<UserEntity> list = entityManager.createNamedQuery(UserEntity.QUERY_FIND_BY_USERNAME, UserEntity.class)
                 .setParameter("userName", userName).getResultList();
 
         if (!list.isEmpty())

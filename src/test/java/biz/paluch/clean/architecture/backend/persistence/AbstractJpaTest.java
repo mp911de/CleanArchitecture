@@ -70,7 +70,7 @@ public abstract class AbstractJpaTest
         properties.put(AvailableSettings.URL, "jdbc:h2:mem:primary");
         properties.put(AvailableSettings.USER, "SA");
         properties.put(AvailableSettings.DRIVER, Driver.class.getName());
-        properties.put(AvailableSettings.HBM2DDL_AUTO, "create");
+        properties.put(AvailableSettings.HBM2DDL_AUTO, "create-drop");
         return properties;
     }
 }

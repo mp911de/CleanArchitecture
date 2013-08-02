@@ -5,28 +5,23 @@
         http://java.sun.com/xml/ns/persistence
         http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 
-    <persistence-unit name="primary" transaction-type="RESOURCE_LOCAL">
-        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <persistence-unit name="primary" transaction-type="JTA">
+        <jta-data-source>java:jboss/datasources/clean-architectureDS</jta-data-source>
 
         <class>biz.paluch.clean.architecture.backend.persistence.entity.ItemEntity</class>
         <class>biz.paluch.clean.architecture.backend.persistence.entity.OrderEntity</class>
         <class>biz.paluch.clean.architecture.backend.persistence.entity.OrderItemEntity</class>
         <class>biz.paluch.clean.architecture.backend.persistence.entity.UserEntity</class>
 
-        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
 
         <shared-cache-mode>NONE</shared-cache-mode>
         <validation-mode>AUTO</validation-mode>
 
         <properties>
             <property name="hibernate.show_sql" value="true" />
-            <property name="hibernate.format_sql" value="true" />
-
-            <property name="hibernate.cache.use_second_level_cache" value="false" />
-            <property name="hibernate.cache.use_query_cache" value="false" />
-
-            <property name="hibernate.transaction.jta.platform"
-                      value="org.hibernate.service.jta.platform.internal.NoJtaPlatform" />
+            <property name="hibernate.format_sql" value="false" />
+            <property name="hibernate.hbm2ddl.auto" value="create" />
         </properties>
     </persistence-unit>
 </persistence>

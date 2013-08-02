@@ -1,4 +1,4 @@
-package biz.paluch.clean.architecture.backend.persistence;
+package biz.paluch.clean.architecture.backend.persistence.entity;
 
 import javax.persistence.Basic;
 import javax.persistence.Entity;
@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * @since 01.08.13 07:24
  */
 @Entity
-@Table(name = "User")
+@Table(name = "Users")
 @NamedQueries({ @NamedQuery(name = UserEntity.QUERY_FIND_BY_USERNAME,
                             query = "SELECT u from UserEntity u where u.userName = :userName") })
 

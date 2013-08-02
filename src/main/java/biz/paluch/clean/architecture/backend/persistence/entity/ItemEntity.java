@@ -1,19 +1,12 @@
-package biz.paluch.clean.architecture.backend.persistence;
+package biz.paluch.clean.architecture.backend.persistence.entity;
 
-import biz.paluch.clean.architecture.applicationmodel.Item;
-import biz.paluch.clean.architecture.applicationmodel.Order;
-
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
 import javax.persistence.Basic;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -21,9 +14,15 @@ import javax.persistence.Table;
  * @since 01.08.13 08:18
  */
 @Entity
-@Table(name = "Item")
+@Table(name = "Items")
+@NamedQueries({ @NamedQuery(name = ItemEntity.QUERY_FIND_BY_ITEM_NAME,
+                            query = "SELECT i from ItemEntity i where i.item = :item"),
+                      @NamedQuery(name = ItemEntity.QUERY_FIND_ALL, query = "SELECT i from ItemEntity i ") })
 public class ItemEntity
 {
+    public static final String QUERY_FIND_BY_ITEM_NAME = "ItemEntity.findByItem";
+    public static final String QUERY_FIND_ALL = "ItemEntity.findAll";
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

@@ -3,6 +3,8 @@ package biz.paluch.clean.architecture.backend.persistence;
 import biz.paluch.clean.architecture.applicationmodel.Order;
 import biz.paluch.clean.architecture.applicationmodel.OrderItem;
 import biz.paluch.clean.architecture.applicationmodel.User;
+import biz.paluch.clean.architecture.backend.persistence.repository.JpaOrderRepository;
+import biz.paluch.clean.architecture.backend.persistence.repository.JpaUserRepository;
 import org.junit.Test;
 
 import java.util.Date;

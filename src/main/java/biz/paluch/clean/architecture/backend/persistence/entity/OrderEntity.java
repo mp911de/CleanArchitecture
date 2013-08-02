@@ -1,4 +1,4 @@
-package biz.paluch.clean.architecture.backend.persistence;
+package biz.paluch.clean.architecture.backend.persistence.entity;
 
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;

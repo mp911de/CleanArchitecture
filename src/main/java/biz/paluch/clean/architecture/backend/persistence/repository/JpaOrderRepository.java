@@ -1,8 +1,11 @@
-package biz.paluch.clean.architecture.backend.persistence;
+package biz.paluch.clean.architecture.backend.persistence.repository;
 
 import biz.paluch.clean.architecture.applicationmodel.Order;
 import biz.paluch.clean.architecture.applicationmodel.OrderItem;
 import biz.paluch.clean.architecture.applicationmodel.User;
+import biz.paluch.clean.architecture.backend.persistence.entity.OrderEntity;
+import biz.paluch.clean.architecture.backend.persistence.entity.OrderItemEntity;
+import biz.paluch.clean.architecture.backend.persistence.entity.UserEntity;
 import biz.paluch.clean.architecture.usecases.boundaries.OrderRepository;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -57,15 +60,10 @@ public class JpaOrderRepository implements OrderRepository
 
     private UserEntity getUser(String userName)
     {
-        return (UserEntity) entityManager.createQuery(UserEntity.QUERY_FIND_BY_USERNAME)
+        return (UserEntity) entityManager.createNamedQuery(UserEntity.QUERY_FIND_BY_USERNAME)
                 .setParameter("userName", userName).getSingleResult();
     }
 
-
-    public void setEntityManager(EntityManager entityManager)
-    {
-        this.entityManager = entityManager;
-    }
 
     public void deleteAll()
     {
@@ -74,7 +72,7 @@ public class JpaOrderRepository implements OrderRepository
 
     public Order find(String orderId)
     {
-        List<OrderEntity> list = entityManager.createQuery(OrderEntity.QUERY_FIND_BY_ORDERID, OrderEntity.class)
+        List<OrderEntity> list = entityManager.createNamedQuery(OrderEntity.QUERY_FIND_BY_ORDERID, OrderEntity.class)
                 .setParameter("orderId", orderId).getResultList();
         if (list.isEmpty())
         {
@@ -110,7 +108,7 @@ public class JpaOrderRepository implements OrderRepository
     {
 
         List<OrderEntity> list =
-                entityManager.createQuery(OrderEntity.QUERY_FIND_ALL, OrderEntity.class).getResultList();
+                entityManager.createNamedQuery(OrderEntity.QUERY_FIND_ALL, OrderEntity.class).getResultList();
 
         List<Order> result = new ArrayList<>();
         for (OrderEntity orderEntity : list)
@@ -118,5 +116,10 @@ public class JpaOrderRepository implements OrderRepository
             result.add(toOrder(orderEntity));
         }
         return result;
+    }
+
+    public void setEntityManager(EntityManager entityManager)
+    {
+        this.entityManager = entityManager;
     }
 }

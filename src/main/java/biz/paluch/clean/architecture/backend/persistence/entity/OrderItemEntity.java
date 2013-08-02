@@ -1,12 +1,6 @@
-package biz.paluch.clean.architecture.backend.persistence;
+package biz.paluch.clean.architecture.backend.persistence.entity;
 
-import biz.paluch.clean.architecture.applicationmodel.Item;
-import biz.paluch.clean.architecture.applicationmodel.OrderItem;
-
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
 import javax.persistence.Basic;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;

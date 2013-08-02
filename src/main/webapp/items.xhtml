@@ -3,41 +3,28 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-    <title>Orders</title>
+    <title>Items</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <h:outputStylesheet name="css/screen.css"/>
 </h:head>
 <h:body>
     <div id="container">
         <div id="content">
-            <h2>Order</h2>
+            <h2>Items</h2>
             <h:form>
-
-                Your Name: <h:inputText value="#{orderModel.userName}"/><br/>
-
-                Items in Order:
-                <h:dataTable value="#{orderModel.orderItems}" var="var">
+                <h:dataTable value="#{itemController.items}" var="var">
                     <h:column>
                         <f:facet name="header">
                             Item
                         </f:facet>
-                        <h:outputText value="#{var.item}"/>
+                        <h:outputText value="#{var.label}"/>
                     </h:column>
                 </h:dataTable>
 
-                <h2>Add new Item</h2>
-
-                <h:selectOneListbox size="1" value="#{orderModel.selectedItem}">
-                    <f:selectItems value="#{itemController.items}"/>
-                </h:selectOneListbox>
-                <h:commandButton action="#{orderController.addItem()}" value="Add item"/>
-
-                <br/>
-
-                <h:commandButton action="#{orderController.createOrder()}" value="Create the Order"/>
+                <h2>Create new Item</h2>
+                <h:inputText value="#{itemModel.item}"/>
+                <h:commandButton action="#{itemController.createOrUpdateItem}" value="Create or Update"/>
             </h:form>
-
-            <a href="items.xhtml">Manage Items</a>
         </div>
 
         <div id="footer">
