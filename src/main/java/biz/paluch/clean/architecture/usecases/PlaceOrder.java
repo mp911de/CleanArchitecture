@@ -24,8 +24,8 @@ public class PlaceOrder
     /**
      * Place order and return the OrderId.
      *
-     * @param items
-     * @param userName
+     * @param items Items to create an order of
+     * @param userName Requesting user
      * @return the OrderId
      * @throws NotFoundException
      */

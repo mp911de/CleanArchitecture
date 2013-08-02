@@ -6,6 +6,7 @@ import biz.paluch.clean.architecture.usecases.boundaries.ItemRepository;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,7 @@ import java.util.List;
 public class JpaItemRepository implements ItemRepository
 {
     @Inject
+    @PersistenceUnit(unitName = "primary")
     private EntityManager entityManager;
 
     @Override

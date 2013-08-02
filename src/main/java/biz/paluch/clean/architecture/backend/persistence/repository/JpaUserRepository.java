@@ -6,6 +6,7 @@ import biz.paluch.clean.architecture.usecases.boundaries.UserRepository;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceUnit;
 import java.util.List;
 
 /**
@@ -15,6 +16,7 @@ import java.util.List;
 public class JpaUserRepository implements UserRepository
 {
     @Inject
+    @PersistenceUnit(unitName = "primary")
     private EntityManager entityManager;
 
     @Override

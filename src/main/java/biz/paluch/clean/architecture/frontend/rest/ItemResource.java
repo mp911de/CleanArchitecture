@@ -48,7 +48,7 @@ public class ItemResource
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
 
-        return new JAXBElement<Item>(new QName("item"), Item.class, item);
+        return new JAXBElement<>(new QName("item"), Item.class, item);
     }
 
     @PUT

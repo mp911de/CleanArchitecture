@@ -11,6 +11,7 @@ import biz.paluch.clean.architecture.usecases.boundaries.OrderRepository;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +23,7 @@ import java.util.List;
 public class JpaOrderRepository implements OrderRepository
 {
     @Inject
+    @PersistenceUnit(unitName = "primary")
     private EntityManager entityManager;
 
     @Override
@@ -81,9 +83,7 @@ public class JpaOrderRepository implements OrderRepository
 
         OrderEntity orderEntity = list.get(0);
 
-        Order order = toOrder(orderEntity);
-
-        return order;
+        return toOrder(orderEntity);
     }
 
 
