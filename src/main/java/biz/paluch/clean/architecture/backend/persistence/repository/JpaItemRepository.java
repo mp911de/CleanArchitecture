@@ -17,7 +17,6 @@ import java.util.List;
 public class JpaItemRepository implements ItemRepository
 {
     @Inject
-    @PersistenceUnit(unitName = "primary")
     private EntityManager entityManager;
 
     @Override

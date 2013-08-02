@@ -23,7 +23,6 @@ import java.util.List;
 public class JpaOrderRepository implements OrderRepository
 {
     @Inject
-    @PersistenceUnit(unitName = "primary")
     private EntityManager entityManager;
 
     @Override

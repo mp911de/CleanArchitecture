@@ -16,7 +16,6 @@ import java.util.List;
 public class JpaUserRepository implements UserRepository
 {
     @Inject
-    @PersistenceUnit(unitName = "primary")
     private EntityManager entityManager;
 
     @Override
