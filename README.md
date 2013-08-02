@@ -1,10 +1,12 @@
-clean-architecture: Example Application built using an Onion-Architecture.
+Example Application built using an Onion-Architecture.
 ========================
 Author: Mark Paluch
 Level: Intermediate
 Technologies: CDI, JSF, JPA, EJB, JPA, JAX-RS
 Summary: Example Application built using an Onion-Architecture that incorporates multiple technologies
 Source: <https://github.com/mp911de/CleanArchitecture>
+More Information:https://www.paluch.biz/blog/80-clean-your-architecture-databases-the-web-and-service-interfaces-are-just-plugins.html 
+https://www.paluch.biz/blog/83-clean-architecture-code-examples-for-an-onion-architecture.html
 
 What is it?
 -----------
