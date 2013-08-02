@@ -34,6 +34,7 @@ public class PlaceOrderTest
     public static final String ITEM_NAME_PAPER = "Paper";
     public static final String ITEM_NAME_GLUE = "Glue";
     public static final String USER_NAME_MARK = "mark";
+    
     private PlaceOrder sut = new PlaceOrder();
 
     @Mock

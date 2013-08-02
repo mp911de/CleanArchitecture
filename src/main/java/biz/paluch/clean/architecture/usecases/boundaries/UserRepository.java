@@ -1,6 +1,7 @@
 package biz.paluch.clean.architecture.usecases.boundaries;
 
 import biz.paluch.clean.architecture.applicationmodel.User;
+import biz.paluch.clean.architecture.backend.persistence.UserEntity;
 
 /**
  * @author <a href="mailto:mpaluch@paluch.biz">Mark Paluch</a>
@@ -9,4 +10,6 @@ import biz.paluch.clean.architecture.applicationmodel.User;
 public interface UserRepository
 {
     User find(String userName);
+
+    void store(User user);
 }

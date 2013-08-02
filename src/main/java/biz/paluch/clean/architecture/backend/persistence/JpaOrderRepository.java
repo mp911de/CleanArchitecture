@@ -8,6 +8,7 @@ import biz.paluch.clean.architecture.usecases.boundaries.OrderRepository;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -45,8 +46,6 @@ public class JpaOrderRepository implements OrderRepository
         orderEntity.setCreatedBy(user);
 
 
-        
-
         for (OrderItem orderItem : order.getItems())
         {
             OrderItemEntity orderItemEntity = new OrderItemEntity();
@@ -54,7 +53,7 @@ public class JpaOrderRepository implements OrderRepository
             orderItemEntity.setOrderItem(orderItem.getOrderItem());
             orderEntity.getItems().add(orderItemEntity);
         }
-        
+
         entityManager.persist(orderEntity);
     }
 
@@ -86,12 +85,18 @@ public class JpaOrderRepository implements OrderRepository
             return null;
         }
 
-
-        List<OrderItemEntity> list2 = entityManager.createQuery("SELECT o from " + OrderItemEntity.class.getSimpleName() +
-                                                                           " o ", OrderItemEntity.class).getResultList();
-        
-        Order order = new Order();
         OrderEntity orderEntity = list.get(0);
+
+        Order order = toOrder(orderEntity);
+
+        return order;
+    }
+
+
+    private Order toOrder(OrderEntity orderEntity)
+    {
+        Order order = new Order();
+
 
         order.setCreatedBy(new User(orderEntity.getCreatedBy().getUserName()));
         order.setOrderDate(orderEntity.getOrderDate());
@@ -101,8 +106,22 @@ public class JpaOrderRepository implements OrderRepository
         {
             order.getItems().add(new OrderItem(orderItemEntity.getOrderItem()));
         }
-
-
         return order;
+    }
+
+    @Override
+    public List<Order> findOrders()
+    {
+
+        List<OrderEntity> list = entityManager
+                .createQuery("SELECT o from " + OrderEntity.class.getSimpleName() + " o ", OrderEntity.class)
+                .getResultList();
+
+        List<Order> result = new ArrayList<>();
+        for (OrderEntity orderEntity : list)
+        {
+            result.add(toOrder(orderEntity));
+        }
+        return result;
     }
 }

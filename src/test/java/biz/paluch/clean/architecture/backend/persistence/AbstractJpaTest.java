@@ -57,7 +57,7 @@ public abstract class AbstractJpaTest
     @After
     public void after() throws Exception
     {
-        entityManager.getTransaction().commit();
+        entityManager.getTransaction().rollback();
         entityManager.close();
 
     }
