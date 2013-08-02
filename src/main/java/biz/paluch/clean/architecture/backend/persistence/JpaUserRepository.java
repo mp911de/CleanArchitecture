@@ -19,9 +19,7 @@ public class JpaUserRepository implements UserRepository
     @Override
     public User find(String userName)
     {
-        List<UserEntity> list = entityManager.createQuery("SELECT u from " +
-                                                                  UserEntity.class.getSimpleName() +
-                                                                  " u where userName = :userName", UserEntity.class)
+        List<UserEntity> list = entityManager.createQuery(UserEntity.QUERY_FIND_BY_USERNAME, UserEntity.class)
                 .setParameter("userName", userName).getResultList();
 
         if (!list.isEmpty())

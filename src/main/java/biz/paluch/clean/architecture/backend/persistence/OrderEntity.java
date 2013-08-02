@@ -1,27 +1,15 @@
 package biz.paluch.clean.architecture.backend.persistence;
 
-import biz.paluch.clean.architecture.applicationmodel.Item;
-import biz.paluch.clean.architecture.applicationmodel.Order;
-import biz.paluch.clean.architecture.applicationmodel.OrderItem;
-import biz.paluch.clean.architecture.applicationmodel.User;
-
-import javax.annotation.Generated;
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.Date;
@@ -33,8 +21,15 @@ import java.util.List;
  */
 @Entity
 @Table(name = "Orders")
+@NamedQueries({ @NamedQuery(name = OrderEntity.QUERY_COUNT, query = "SELECT count(orderId) from OrderEntity"),
+                      @NamedQuery(name = OrderEntity.QUERY_FIND_BY_ORDERID,
+                                  query = "SELECT o from OrderEntity o where o.orderId= :orderId"),
+              @NamedQuery(name=OrderEntity.QUERY_FIND_ALL, query = "SELECT o from  OrderEntity o ")})
 public class OrderEntity
 {
+    public static final String QUERY_COUNT = "OrderEntity.count";
+    public static final String QUERY_FIND_BY_ORDERID = "OrderEntity.findByOrderId";
+    public static final String QUERY_FIND_ALL = "OrderEntity.findAll";
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

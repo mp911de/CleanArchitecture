@@ -24,9 +24,7 @@ public class JpaOrderRepository implements OrderRepository
     @Override
     public int getNextOrderId()
     {
-        List<Number> maxOrderId =
-                entityManager.createQuery("SELECT count(orderId) from " + OrderEntity.class.getSimpleName())
-                        .getResultList();
+        List<Number> maxOrderId = entityManager.createNamedQuery(OrderEntity.QUERY_COUNT).getResultList();
         if (maxOrderId.isEmpty())
         {
             return 1;
@@ -59,8 +57,7 @@ public class JpaOrderRepository implements OrderRepository
 
     private UserEntity getUser(String userName)
     {
-        return (UserEntity) entityManager
-                .createQuery("SELECT u from " + UserEntity.class.getSimpleName() + " u where u.userName = :userName")
+        return (UserEntity) entityManager.createQuery(UserEntity.QUERY_FIND_BY_USERNAME)
                 .setParameter("userName", userName).getSingleResult();
     }
 
@@ -77,8 +74,7 @@ public class JpaOrderRepository implements OrderRepository
 
     public Order find(String orderId)
     {
-        List<OrderEntity> list = entityManager.createQuery("SELECT o from " + OrderEntity.class.getSimpleName() +
-                                                                   " o where o.orderId= :orderId", OrderEntity.class)
+        List<OrderEntity> list = entityManager.createQuery(OrderEntity.QUERY_FIND_BY_ORDERID, OrderEntity.class)
                 .setParameter("orderId", orderId).getResultList();
         if (list.isEmpty())
         {
@@ -113,9 +109,8 @@ public class JpaOrderRepository implements OrderRepository
     public List<Order> findOrders()
     {
 
-        List<OrderEntity> list = entityManager
-                .createQuery("SELECT o from " + OrderEntity.class.getSimpleName() + " o ", OrderEntity.class)
-                .getResultList();
+        List<OrderEntity> list =
+                entityManager.createQuery(OrderEntity.QUERY_FIND_ALL, OrderEntity.class).getResultList();
 
         List<Order> result = new ArrayList<>();
         for (OrderEntity orderEntity : list)
