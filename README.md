@@ -6,6 +6,9 @@ Technologies: CDI, JSF, JPA, EJB, JPA, JAX-RS<br/>
 Summary: Example Application built using an Onion-Architecture that incorporates multiple technologies<br/>
 Source: <https://github.com/mp911de/CleanArchitecture><br/>
 
+Build Status: [![Build Status](https://snap-ci.com/qyI_noSnlwCtc2tVxJUWfx1TfQql5Gl18GXHShyCtGQ/build_image)](https://snap-ci.com/projects/mp911de/CleanArchitecture/build_history)
+
+
 More Information: <br/>
 https://www.paluch.biz/blog/80-clean-your-architecture-databases-the-web-and-service-interfaces-are-just-plugins.html <br/>
 https://www.paluch.biz/blog/83-clean-architecture-code-examples-for-an-onion-architecture.html<br/>
