@@ -1,6 +1,4 @@
-Build Status: [![Build Status](https://snap-ci.com/qyI_noSnlwCtc2tVxJUWfx1TfQql5Gl18GXHShyCtGQ/build_image)](https://snap-ci.com/projects/mp911de/CleanArchitecture/build_history)
-
-Example Application built using an Onion-Architecture.
+Example Application built using an Onion-Architecture [![Build Status](https://snap-ci.com/qyI_noSnlwCtc2tVxJUWfx1TfQql5Gl18GXHShyCtGQ/build_image)](https://snap-ci.com/projects/mp911de/CleanArchitecture/build_history)
 ========================
 Author: Mark Paluch<br/>
 Level: Intermediate<br/>
