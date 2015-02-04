@@ -11,18 +11,11 @@ More Information: <br/>
 
 What is it?
 -----------
-This is a simple application consisting of a few use cases. The purpose of the application is to show how to
+This simple application consists of a few use cases. The purpose of the application is to show how to
 apply clean architecture patterns in a Multi-Module Maven/Java environment.
 
-It all starts with the data structures/entities/application model. These models are independent of business logic and
-delivery mechanisms. The models are specific to your domain, but not necessary specific to your application. They live
-within the `application-model` module. Business rules and use cases, the specific things, your application does reside
-within the `use-cases` module. They depend on the `application-model` and perhaps on external things which are represented
-by boundaries, located in `contracts`. Those boundaries are an agreement between the use case and the other side that
-provides a specific implementation. The `contracts` depend only on the `application-model`. No ORM entities or
-external-specific API/entities.
-ORM, caching implementations, clients to external services implement a contract that is located
-in `external` and its sub-modules.
+It all starts with the data structures/entities/application model. These models are independent of business logic and delivery mechanisms. The models are specific to your domain, but not necessary specific to your application. They live within the `application-model` module. Business rules and use cases, the specific things your application does, reside within the `use-cases` module. They depend on the `application-model` and perhaps on external things that are represented by boundaries, located in `contracts`. Those boundaries are an agreement between the use case and the other side that provides a specific implementation. The `contracts` depend only on the `application-model`. No ORM entities or external-specific API/entities.
+ORM, caching implementations, clients to external services implement a contract that is located in `external` and its sub-modules.
 
 All parts are tied together by the delivery mechanism that
 integrates the externals and connects the use cases by supplying dependencies to come the system to life.
@@ -50,7 +43,7 @@ and a few business entities:
 * Order
 * Item
 
-These usecases can be accessed by REST or Web UI (JSF) and are persisted using JPA within an in-memory H2 Database
+These use cases can be accessed by REST or Web UI (JSF) and are persisted using JPA within an in-memory H2 Database
 (everything you need is included).
 
 Requirements to run the App
@@ -81,5 +74,4 @@ Access the application
 -------------------------
 
 The application will be running at the following URL: <http://localhost:8080/clean-architecture/>.
-
 
