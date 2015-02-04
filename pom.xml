@@ -22,11 +22,11 @@
 
     <modules>
         <module>application-model</module>
-        <module>dataaccess-api</module>
+        <module>contracts</module>
         <module>commons</module>
         <module>use-cases</module>
-        <module>repositories/jpa</module>
-        <module>frontends/web</module>
+        <module>external/jpa-repository</module>
+        <module>delivery/web</module>
     </modules>
 
     <properties>
@@ -69,7 +69,7 @@
 
             <dependency>
                 <groupId>biz.paluch.clean.architecture</groupId>
-                <artifactId>dataaccess-api</artifactId>
+                <artifactId>contracts</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

@@ -19,9 +19,9 @@ import biz.paluch.clean.architecture.applicationmodel.NotFoundException;
 import biz.paluch.clean.architecture.applicationmodel.Order;
 import biz.paluch.clean.architecture.applicationmodel.User;
 import biz.paluch.clean.architecture.commons.StaticDateProvider;
-import biz.paluch.clean.architecture.dataaccess.ItemRepository;
-import biz.paluch.clean.architecture.dataaccess.OrderRepository;
-import biz.paluch.clean.architecture.dataaccess.UserRepository;
+import biz.paluch.clean.architecture.contracts.ItemRepository;
+import biz.paluch.clean.architecture.contracts.OrderRepository;
+import biz.paluch.clean.architecture.contracts.UserRepository;
 
 /**
  * @author <a href="mailto:mpaluch@paluch.biz">Mark Paluch</a>

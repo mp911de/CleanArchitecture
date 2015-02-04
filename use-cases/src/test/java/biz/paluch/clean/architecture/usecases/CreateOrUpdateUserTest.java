@@ -10,7 +10,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import biz.paluch.clean.architecture.applicationmodel.User;
-import biz.paluch.clean.architecture.dataaccess.UserRepository;
+import biz.paluch.clean.architecture.contracts.UserRepository;
 
 /**
  * @author <a href="mailto:mpaluch@paluch.biz">Mark Paluch</a>

@@ -13,7 +13,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import biz.paluch.clean.architecture.applicationmodel.Order;
-import biz.paluch.clean.architecture.dataaccess.OrderRepository;
+import biz.paluch.clean.architecture.contracts.OrderRepository;
 
 /**
  * @author <a href="mailto:mpaluch@paluch.biz">Mark Paluch</a>

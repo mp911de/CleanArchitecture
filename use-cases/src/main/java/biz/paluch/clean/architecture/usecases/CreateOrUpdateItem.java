@@ -3,7 +3,7 @@ package biz.paluch.clean.architecture.usecases;
 import javax.inject.Inject;
 
 import biz.paluch.clean.architecture.applicationmodel.Item;
-import biz.paluch.clean.architecture.dataaccess.ItemRepository;
+import biz.paluch.clean.architecture.contracts.ItemRepository;
 
 /**
  * @author <a href="mailto:mpaluch@paluch.biz">Mark Paluch</a>

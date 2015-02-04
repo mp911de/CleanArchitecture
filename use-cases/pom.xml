@@ -18,7 +18,7 @@
         </dependency>
         <dependency>
             <groupId>biz.paluch.clean.architecture</groupId>
-            <artifactId>dataaccess-api</artifactId>
+            <artifactId>contracts</artifactId>
         </dependency>
 
         <dependency>
