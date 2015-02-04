@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>Orders</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <h:outputStylesheet name="css/screen.css"/>
+</h:head>
+<h:body>
+    <div id="container">
+        <div id="content">
+            <h2>Order</h2>
+            <h:form>
+
+                Your Name: <h:inputText value="#{orderModel.userName}"/><br/>
+
+                Items in Order:
+                <h:dataTable value="#{orderModel.orderItems}" var="var">
+                    <h:column>
+                        <f:facet name="header">
+                            Item
+                        </f:facet>
+                        <h:outputText value="#{var.item}"/> <h:commandLink id="remove"
+                                                                           action="${orderController.removeItem(var)}">Remove item</h:commandLink>
+                    </h:column>
+                </h:dataTable>
+
+                <h2>Add new Item</h2>
+
+                <h:selectOneListbox size="1" value="#{orderModel.selectedItem}">
+                    <f:selectItems value="#{itemController.items}"/>
+                </h:selectOneListbox>
+                <h:commandButton action="#{orderController.addItem()}" value="Add item"/>
+
+                <br/>
+
+                <h:commandButton action="#{orderController.createOrder()}" value="Create the Order"/>
+            </h:form>
+
+            <a href="items.xhtml">Manage Items</a>
+        </div>
+
+        <div id="footer">
+            <p>
+                This project was generated from a Maven archetype from
+                JBoss.<br/>
+            </p>
+        </div>
+    </div>
+</h:body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>Items</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <h:outputStylesheet name="css/screen.css"/>
+</h:head>
+<h:body>
+    <div id="container">
+        <div id="content">
+            <h2>Items</h2>
+            <h:form>
+                <h:dataTable value="#{itemController.items}" var="var">
+                    <h:column>
+                        <f:facet name="header">
+                            Item
+                        </f:facet>
+                        <h:outputText value="#{var.label}"/>
+                    </h:column>
+                </h:dataTable>
+
+                <h2>Create new Item</h2>
+                <h:inputText value="#{itemModel.item}"/>
+                <h:commandButton action="#{itemController.createOrUpdateItem}" value="Create or Update"/>
+            </h:form>
+
+            <a href="index.xhtml">Back to Index</a>
+        </div>
+
+        <div id="footer">
+            <p>
+                This project was generated from a Maven archetype from
+                JBoss.<br/>
+            </p>
+        </div>
+    </div>
+</h:body>
+</html>

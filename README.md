@@ -1,3 +1,5 @@
+Build Status: [![Build Status](https://snap-ci.com/qyI_noSnlwCtc2tVxJUWfx1TfQql5Gl18GXHShyCtGQ/build_image)](https://snap-ci.com/projects/mp911de/CleanArchitecture/build_history)
+
 Example Application built using an Onion-Architecture.
 ========================
 Author: Mark Paluch<br/>
@@ -5,9 +7,6 @@ Level: Intermediate<br/>
 Technologies: CDI, JSF, JPA, EJB, JPA, JAX-RS<br/>
 Summary: Example Application built using an Onion-Architecture that incorporates multiple technologies<br/>
 Source: <https://github.com/mp911de/CleanArchitecture><br/>
-
-Build Status: [![Build Status](https://snap-ci.com/qyI_noSnlwCtc2tVxJUWfx1TfQql5Gl18GXHShyCtGQ/build_image)](https://snap-ci.com/projects/mp911de/CleanArchitecture/build_history)
-
 
 More Information: <br/>
 https://www.paluch.biz/blog/80-clean-your-architecture-databases-the-web-and-service-interfaces-are-just-plugins.html <br/>
@@ -33,7 +32,8 @@ and a few business entities:
 
 These usecases can be accessed by REST or Web UI (JSF) and are persisted using JPA within an in-memory H2 Database (everything you need is included).
 
-This project does not meet highest clean code requirements, yet it is much cleaner than most applications in production. It's mainly intended to demonstrate how a clean architecture is built.
+This project demonstrates how to apply clean architecture patterns in a Multi-Module Maven/Java environment. These patterns
+are verified by real life projects.
 
 System requirements
 -------------------
@@ -55,7 +55,7 @@ Start JBoss Enterprise Application Platform 6 or JBoss AS 7 with the Web Profile
 Build and Deploy the Quickstart
 -------------------------
 
-_NOTE: The following build command assumes you have configured your Maven user settings. If you have not, you must include Maven setting arguments on the command line. _
+_NOTE: The following build command assumes you have configured your Maven user settings. If you have not, you must include Maven setting arguments on the command line._
 
 1. Make sure you have started the JBoss Server as described above.
 2. Open a command line and navigate to the root directory of this quickstart.
@@ -67,7 +67,7 @@ _NOTE: The following build command assumes you have configured your Maven user s
  
 
 Access the application 
----------------------
+-------------------------
 
 The application will be running at the following URL: <http://localhost:8080/clean-architecture/>.
 
@@ -81,14 +81,3 @@ Undeploy the Archive
 
         mvn jboss-as:undeploy
 
-Run the Quickstart in JBoss Developer Studio or Eclipse
--------------------------------------
-You can also start the server and deploy the quickstarts from Eclipse using JBoss tools. 
-
-Debug the Application
-------------------------------------
-
-If you want to debug the source code or look at the Javadocs of any library in the project, run either of the following commands to pull them into your local repository. The IDE should then detect them.
-
-    mvn dependency:sources
-    mvn dependency:resolve -Dclassifier=javadoc
