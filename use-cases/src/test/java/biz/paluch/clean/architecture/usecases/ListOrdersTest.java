@@ -6,6 +6,7 @@ import static org.mockito.Mockito.*;
 import java.util.Arrays;
 import java.util.List;
 
+import biz.paluch.clean.architecture.usecases.simple.ListOrders;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,7 +14,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import biz.paluch.clean.architecture.applicationmodel.Order;
-import biz.paluch.clean.architecture.contracts.OrderRepository;
+import biz.paluch.clean.architecture.contracts.repositories.OrderRepository;
 
 /**
  * @author <a href="mailto:mpaluch@paluch.biz">Mark Paluch</a>

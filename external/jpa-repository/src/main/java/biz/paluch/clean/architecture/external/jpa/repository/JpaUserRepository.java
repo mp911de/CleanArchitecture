@@ -6,7 +6,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import biz.paluch.clean.architecture.applicationmodel.User;
-import biz.paluch.clean.architecture.contracts.UserRepository;
+import biz.paluch.clean.architecture.contracts.repositories.UserRepository;
 import biz.paluch.clean.architecture.external.jpa.entity.UserEntity;
 
 /**

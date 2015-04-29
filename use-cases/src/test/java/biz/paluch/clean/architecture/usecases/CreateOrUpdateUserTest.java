@@ -3,6 +3,7 @@ package biz.paluch.clean.architecture.usecases;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
 
+import biz.paluch.clean.architecture.usecases.simple.CreateOrUpdateUser;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,7 +11,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import biz.paluch.clean.architecture.applicationmodel.User;
-import biz.paluch.clean.architecture.contracts.UserRepository;
+import biz.paluch.clean.architecture.contracts.repositories.UserRepository;
 
 /**
  * @author <a href="mailto:mpaluch@paluch.biz">Mark Paluch</a>

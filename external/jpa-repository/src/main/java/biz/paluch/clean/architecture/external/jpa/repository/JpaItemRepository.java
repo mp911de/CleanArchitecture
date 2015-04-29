@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import biz.paluch.clean.architecture.applicationmodel.Item;
-import biz.paluch.clean.architecture.contracts.ItemRepository;
+import biz.paluch.clean.architecture.contracts.repositories.ItemRepository;
 import biz.paluch.clean.architecture.external.jpa.entity.ItemEntity;
 
 /**

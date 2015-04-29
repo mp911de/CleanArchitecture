@@ -1,4 +1,4 @@
-package biz.paluch.clean.architecture.contracts;
+package biz.paluch.clean.architecture.contracts.repositories;
 
 import biz.paluch.clean.architecture.applicationmodel.User;
 

@@ -1,12 +1,12 @@
-package biz.paluch.clean.architecture.usecases;
+package biz.paluch.clean.architecture.usecases.simple;
 
 import java.util.List;
 
 import biz.paluch.clean.architecture.applicationmodel.Item;
 import biz.paluch.clean.architecture.applicationmodel.NotFoundException;
 import biz.paluch.clean.architecture.applicationmodel.User;
-import biz.paluch.clean.architecture.contracts.ItemRepository;
-import biz.paluch.clean.architecture.contracts.UserRepository;
+import biz.paluch.clean.architecture.contracts.repositories.ItemRepository;
+import biz.paluch.clean.architecture.contracts.repositories.UserRepository;
 
 /**
  * @author <a href="mailto:mpaluch@paluch.biz">Mark Paluch</a>

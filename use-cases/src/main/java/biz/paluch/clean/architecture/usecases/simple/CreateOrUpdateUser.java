@@ -1,9 +1,9 @@
-package biz.paluch.clean.architecture.usecases;
+package biz.paluch.clean.architecture.usecases.simple;
 
 import javax.inject.Inject;
 
 import biz.paluch.clean.architecture.applicationmodel.User;
-import biz.paluch.clean.architecture.contracts.UserRepository;
+import biz.paluch.clean.architecture.contracts.repositories.UserRepository;
 
 /**
  * @author <a href="mailto:mpaluch@paluch.biz">Mark Paluch</a>

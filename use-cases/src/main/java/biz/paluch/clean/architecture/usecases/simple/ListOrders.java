@@ -1,11 +1,11 @@
-package biz.paluch.clean.architecture.usecases;
+package biz.paluch.clean.architecture.usecases.simple;
 
 import java.util.List;
 
 import javax.inject.Inject;
 
 import biz.paluch.clean.architecture.applicationmodel.Order;
-import biz.paluch.clean.architecture.contracts.OrderRepository;
+import biz.paluch.clean.architecture.contracts.repositories.OrderRepository;
 
 /**
  * @author <a href="mailto:mpaluch@paluch.biz">Mark Paluch</a>

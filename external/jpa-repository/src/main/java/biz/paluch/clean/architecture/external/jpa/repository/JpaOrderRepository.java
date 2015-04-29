@@ -10,7 +10,7 @@ import javax.persistence.EntityManager;
 import biz.paluch.clean.architecture.applicationmodel.Order;
 import biz.paluch.clean.architecture.applicationmodel.OrderItem;
 import biz.paluch.clean.architecture.applicationmodel.User;
-import biz.paluch.clean.architecture.contracts.OrderRepository;
+import biz.paluch.clean.architecture.contracts.repositories.OrderRepository;
 import biz.paluch.clean.architecture.external.jpa.entity.OrderEntity;
 import biz.paluch.clean.architecture.external.jpa.entity.OrderItemEntity;
 import biz.paluch.clean.architecture.external.jpa.entity.UserEntity;

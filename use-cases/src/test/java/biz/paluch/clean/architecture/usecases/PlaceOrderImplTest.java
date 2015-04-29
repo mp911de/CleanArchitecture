@@ -19,22 +19,25 @@ import biz.paluch.clean.architecture.applicationmodel.NotFoundException;
 import biz.paluch.clean.architecture.applicationmodel.Order;
 import biz.paluch.clean.architecture.applicationmodel.User;
 import biz.paluch.clean.architecture.commons.StaticDateProvider;
-import biz.paluch.clean.architecture.contracts.ItemRepository;
-import biz.paluch.clean.architecture.contracts.OrderRepository;
-import biz.paluch.clean.architecture.contracts.UserRepository;
+import biz.paluch.clean.architecture.contracts.repositories.ItemRepository;
+import biz.paluch.clean.architecture.contracts.repositories.OrderRepository;
+import biz.paluch.clean.architecture.contracts.repositories.UserRepository;
+import biz.paluch.clean.architecture.contracts.usecases.PlaceOrderOutput;
+import biz.paluch.clean.architecture.contracts.usecases.PlaceOrderRequest;
+import biz.paluch.clean.architecture.usecases.advanced.PlaceOrderImpl;
 
 /**
  * @author <a href="mailto:mpaluch@paluch.biz">Mark Paluch</a>
  * @since 01.08.13 07:31
  */
 @RunWith(MockitoJUnitRunner.class)
-public class PlaceOrderTest {
+public class PlaceOrderImplTest {
     public static final String ITEM_NAME_SCISSORS = "Scissors";
     public static final String ITEM_NAME_PAPER = "Paper";
     public static final String ITEM_NAME_GLUE = "Glue";
     public static final String USER_NAME_MARK = "mark";
 
-    private PlaceOrder sut = new PlaceOrder();
+    private PlaceOrderImpl sut = new PlaceOrderImpl();
 
     @Mock
     private OrderRepository orderRepository;
@@ -44,6 +47,11 @@ public class PlaceOrderTest {
 
     @Mock
     private UserRepository userRepository;
+
+    @Mock
+    private PlaceOrderOutput orderOutput;
+
+    private PlaceOrderRequest request = new PlaceOrderRequest();
 
     @Before
     public void setUp() throws Exception {
@@ -60,9 +68,12 @@ public class PlaceOrderTest {
         mockUserRepository();
         mockOrderRepository();
 
-        String orderIdResult = sut.placeOrder(items, USER_NAME_MARK);
+        request.items = items;
+        request.userName = USER_NAME_MARK;
 
-        assertEquals("mark-42", orderIdResult);
+        sut.placeOrder(request, orderOutput);
+
+        verify(orderOutput).onResponse("mark-42");
     }
 
     @Test
@@ -76,7 +87,10 @@ public class PlaceOrderTest {
         Date orderDate = new Date(42424242L);
         StaticDateProvider.initialize(orderDate);
 
-        String orderIdResult = sut.placeOrder(items, USER_NAME_MARK);
+        request.items = items;
+        request.userName = USER_NAME_MARK;
+
+        sut.placeOrder(request, orderOutput);
 
         ArgumentCaptor<Order> captor = ArgumentCaptor.forClass(Order.class);
         verify(orderRepository).persist(captor.capture());
@@ -85,8 +99,9 @@ public class PlaceOrderTest {
 
         assertEquals(orderDate, theOrder.getOrderDate());
         assertEquals(USER_NAME_MARK, theOrder.getCreatedBy().getUserName());
-        assertEquals(orderIdResult, theOrder.getOrderId());
         assertEquals(items.size(), theOrder.getItems().size());
+
+        verify(orderOutput).onResponse("mark-42");
 
     }
 
@@ -107,7 +122,10 @@ public class PlaceOrderTest {
     @Test(expected = NotFoundException.class)
     public void testPlaceOrderItemNotFound() throws Exception {
         List<String> items = Arrays.asList(ITEM_NAME_SCISSORS, ITEM_NAME_PAPER, ITEM_NAME_GLUE);
-        sut.placeOrder(items, USER_NAME_MARK);
+
+        request.items = items;
+        request.userName = USER_NAME_MARK;
+        sut.placeOrder(request, orderOutput);
 
     }
 
@@ -115,7 +133,11 @@ public class PlaceOrderTest {
     public void testPlaceOrderUserNotFound() throws Exception {
         List<String> items = Arrays.asList(ITEM_NAME_SCISSORS, ITEM_NAME_PAPER, ITEM_NAME_GLUE);
         mockItemRepository();
-        sut.placeOrder(items, USER_NAME_MARK);
+
+        request.items = items;
+        request.userName = USER_NAME_MARK;
+
+        sut.placeOrder(request, orderOutput);
 
     }
 }
