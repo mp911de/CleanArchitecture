@@ -1,4 +1,4 @@
-Example Application built using an Onion-Architecture [![Build Status](https://snap-ci.com/mp911de/CleanArchitecture/branch/master/build_image)](https://snap-ci.com/mp911de/CleanArchitecture/branch/master)
+Sampler for Clean Architecture/Onion-Architecture [![Build Status](https://snap-ci.com/mp911de/CleanArchitecture/branch/master/build_image)](https://snap-ci.com/mp911de/CleanArchitecture/branch/master)
 ========================
 Author: Mark Paluch<br/>
 Technologies: CDI, JSF, JPA, EJB, JPA, JAX-RS<br/>
@@ -24,6 +24,20 @@ If you need a different implementation for any external, so you can easily chang
 affecting other parts of the system.
 
 These patterns are verified by real life projects.
+
+A word on Clean Architecture
+----------------------------
+
+As soon as you dig into the code, you'll notice comments on the one or other class. Subject of these comments is to help
+to understand the structure and the different styles, which are possible.
+
+You'll notice soon, there are many different styles and ways to approach the Clean Architecture style. There are use cases
+which are built much more simple, e. g. without input/output boundaries and direct usage of dependency injection and
+there are use-cases which implement input boundaries and use output boundaries. 
+
+In the end it's up to you, how much you're willing to invest in your architecture. This is, however, only a variety of
+examples to give you an impression, how to express Clean Architecture with Java.
+
 
 What does it?
 ---------
@@ -61,13 +75,12 @@ Build and Deploy the Quickstart
 
 _NOTE: The following build command assumes you have configured your Maven user settings. If you have not, you must include Maven setting arguments on the command line._
 
-1. Make sure you have started a JBoss AS 7 or Wildfly 8 server with at least the Web Profile
-2. Open a command line and navigate to the root directory of this project.
-3. Type this command to build and deploy the archive:
+1. Open a command line and navigate to the root directory of this project.
+2. Type this command to build and deploy the archive:
 
-        mvn clean package jboss-as:deploy
+        mvn clean package jboss-as:run
 
-4. This will deploy `target/clean-architecture.war` to the running instance of the server.
+3. This will start a JBoss 7 instance and deploy `target/clean-architecture.war` to the newly started instance.
  
 
 Access the application 

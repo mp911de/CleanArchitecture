@@ -39,5 +39,6 @@ public class ItemController {
 
     public void createOrUpdateItem() {
         itemService.createOrUpdateItem(itemModel.getItem());
+        itemModel.setItem("");
     }
 }

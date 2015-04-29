@@ -9,20 +9,45 @@
 </h:head>
 <h:body>
     <div id="container">
+        <h1>Clean Architecture Demo</h1>
+
         <div id="content">
+            <p>
+                You can manage items and create an order with this frontend.
+            </p>
+
+            <p><strong>Guide</strong></p>
+            <ol>
+                <li>Go to <a href="items.xhtml">Manage Items</a> and create a few items</li>
+                <li>Come back to <a href="index.xhtml">the Index</a> and add some items into the order</li>
+                <li>Enter a name into the name field</li>
+                <li>Submit the order using "Create Order" and notice that an order record has been written to
+                    <code>java:jboss/datasources/clean-architectureDS</code></li>
+            </ol>
+            <p>
+                &nbsp;
+            </p>
+
             <h2>Order</h2>
             <h:form>
 
+                <h:messages/>
                 Your Name: <h:inputText value="#{orderModel.userName}"/><br/>
 
                 Items in Order:
-                <h:dataTable value="#{orderModel.orderItems}" var="var">
+                <h:dataTable value="#{orderModel.orderItems}" var="var" style="width: 50%">
                     <h:column>
                         <f:facet name="header">
                             Item
                         </f:facet>
-                        <h:outputText value="#{var.item}"/> <h:commandLink id="remove"
-                                                                           action="${orderController.removeItem(var)}">Remove item</h:commandLink>
+                        <h:outputText value="#{var.item}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            Remove
+                        </f:facet>
+                        <h:commandLink id="remove"
+                                       action="${orderController.removeItem(var)}">Remove item</h:commandLink>
                     </h:column>
                 </h:dataTable>
 
@@ -44,7 +69,8 @@
         <div id="footer">
             <p>
                 This project was generated from a Maven archetype from
-                JBoss.<br/>
+                JBoss.<br/> Sources: <a
+                    href="https://github.com/mp911de/CleanArchitecture">https://github.com/mp911de/CleanArchitecture</a>
             </p>
         </div>
     </div>
