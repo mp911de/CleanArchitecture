@@ -39,7 +39,7 @@
         </dependency>
 
 
-        <!-- Import the Common Annotations API (JSR-250), we use provided scope 
+        <!-- Import the Common Annotations API (JSR-250), we use provided scope
             as the API is included in JBoss AS 7 -->
         <dependency>
             <groupId>org.jboss.spec.javax.annotation</groupId>
@@ -55,7 +55,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Import the EJB API, we use provided scope as the API is included in 
+        <!-- Import the EJB API, we use provided scope as the API is included in
             JBoss AS 7 -->
         <dependency>
             <groupId>org.jboss.spec.javax.ejb</groupId>
@@ -69,14 +69,6 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-jpamodelgen</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- Annotation processor that raising compilation errors whenever constraint 
-            annotations are incorrectly used. -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator-annotation-processor</artifactId>
             <scope>provided</scope>
         </dependency>
 
