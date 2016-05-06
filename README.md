@@ -65,7 +65,7 @@ Requirements to run the App
 
 All you need to build this project is Java 6.0 (Java SDK 1.6) or better, Maven 3.0 or better.
 
-The application this project produces is designed to be run on JBoss Enterprise Application Platform 6 or JBoss AS 7.
+The application this project produces is designed to be run on JBoss AS7, WildFly 8 or better.
 You could easily change the delivery mechanism to a console application with only providing a new delivery mechanism
 and a different approach how to wire the dependencies.
 
@@ -78,9 +78,9 @@ _NOTE: The following build command assumes you have configured your Maven user s
 1. Open a command line and navigate to the root directory of this project.
 2. Type this command to build and deploy the archive:
 
-        mvn clean package jboss-as:run
+        mvn clean package wildfly:run
 
-3. This will start a JBoss 7 instance and deploy `target/clean-architecture.war` to the newly started instance.
+3. This will start a WildFly 10 instance and deploy `target/clean-architecture.war` to the newly started instance.
  
 
 Access the application 
