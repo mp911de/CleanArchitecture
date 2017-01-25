@@ -123,6 +123,8 @@ public class PlaceOrderImplTest {
     public void testPlaceOrderItemNotFound() throws Exception {
         List<String> items = Arrays.asList(ITEM_NAME_SCISSORS, ITEM_NAME_PAPER, ITEM_NAME_GLUE);
 
+        mockItemRepository();
+
         request.items = items;
         request.userName = USER_NAME_MARK;
         sut.placeOrder(request, orderOutput);
