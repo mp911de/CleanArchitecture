@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import biz.paluch.clean.architecture.applicationmodel.Order;
 import biz.paluch.clean.architecture.contracts.repositories.OrderRepository;
