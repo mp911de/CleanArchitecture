@@ -1,4 +1,5 @@
 Sampler for Clean Architecture/Onion-Architecture [![Build Status](https://snap-ci.com/mp911de/CleanArchitecture/branch/master/build_image)](https://snap-ci.com/mp911de/CleanArchitecture/branch/master)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmp911de%2FCleanArchitecture.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmp911de%2FCleanArchitecture?ref=badge_shield)
 ========================
 Author: Mark Paluch<br/>
 Technologies: CDI, JSF, JPA, EJB, JPA, JAX-RS<br/>
@@ -88,3 +89,7 @@ Access the application
 
 The application will be running at the following URL: <http://localhost:8080/clean-architecture/>.
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmp911de%2FCleanArchitecture.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmp911de%2FCleanArchitecture?ref=badge_large)
